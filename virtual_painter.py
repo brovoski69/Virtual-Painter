@@ -67,7 +67,6 @@ while True:
         x = int(lm[8].x * w)
         y = int(lm[8].y * h)
 
-        # -------- UI Button Touch --------
         if y < header_height and index:
             for i in range(len(colors)):
                 if 10 + i*70 < x < 60 + i*70:
@@ -75,14 +74,12 @@ while True:
                     prev_x, prev_y = None, None
                     time.sleep(0.25)
 
-        # -------- Eraser --------
         elif ring and pinky and not index and not middle:
             if prev_x is None:
                 prev_x, prev_y = x, y
             cv2.line(canvas, (prev_x, prev_y), (x, y), (0,0,0), eraser_thickness)
             prev_x, prev_y = x, y
 
-        # -------- Clear Canvas --------
         elif index and middle and ring and pinky:
             if clear_time is None:
                 clear_time = time.time()
@@ -91,7 +88,6 @@ while True:
         else:
             clear_time = None
 
-        # -------- Draw --------
         if index and not middle and y > header_height:
             if prev_x is None:
                 prev_x, prev_y = x, y
@@ -102,10 +98,8 @@ while True:
 
         mp_draw.draw_landmarks(frame, result.multi_hand_landmarks[0], mp_hands.HAND_CONNECTIONS)
 
-    # -------- Overlay --------
     frame = cv2.add(frame, canvas)
 
-    # -------- FPS Display --------
     cv2.putText(frame, f"FPS: {fps}", (w-120, 30),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
 
@@ -121,4 +115,5 @@ while True:
 
 hands.close()
 cap.release()
+
 cv2.destroyAllWindows()
