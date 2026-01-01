@@ -1,4 +1,9 @@
 # Virtual Painter using OpenCV & MediaPipe
 An AI-based virtual painting application that allows users to draw on the screen using hand gestures.
 Built using Python, OpenCV, and MediaPipe with real-time hand tracking, gesture controls, UI buttons, FPS monitoring, and image saving.
-Used Python 3.9 and MediaPipe 0.10.9
+
+## 🛠 Tech Stack
+- Python 3.9
+- OpenCV
+- MediaPipe 0.10.9
+- NumPy
