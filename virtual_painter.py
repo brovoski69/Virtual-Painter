@@ -103,7 +103,7 @@ while True:
     cv2.putText(frame, f"FPS: {fps}", (w-120, 30),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
 
-    cv2.imshow("AI Virtual Painter", frame)
+    cv2.imshow("Virtual Painter", frame)
 
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
@@ -117,3 +117,4 @@ hands.close()
 cap.release()
 
 cv2.destroyAllWindows()
+
